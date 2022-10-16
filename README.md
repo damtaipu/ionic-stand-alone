@@ -1,4 +1,4 @@
-###Ionic 6 com Stand Alone Components
+### Ionic 6 com Stand Alone Components
 
 ![](https://miro.medium.com/max/720/1*uRroKId3vdIr8QxpScqYMA.png)
 
