@@ -4,20 +4,22 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-
   beforeEach(waitForAsync(() => {
-
     TestBed.configureTestingModule({
       declarations: [AppComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
+  it('should create the app shell', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
-  // TODO: add more tests!
 
+    expect(fixture.componentInstance).toBeTruthy();
+  });
+
+  it('should expose the environment injector used by the Ionic router outlet', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+
+    expect(fixture.componentInstance.environmentInjector).toBeTruthy();
+  });
 });

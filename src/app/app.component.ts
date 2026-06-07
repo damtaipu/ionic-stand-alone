@@ -1,10 +1,11 @@
-import { Component, EnvironmentInjector } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EnvironmentInjector, inject } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  constructor(public environmentInjector: EnvironmentInjector) {}
+  readonly environmentInjector: EnvironmentInjector = inject(EnvironmentInjector);
 }
