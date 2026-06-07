@@ -9,8 +9,7 @@ describe('HomePage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(), HomePage],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePage);
@@ -18,7 +17,15 @@ describe('HomePage', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it('should create the page', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the Ionic components documentation link', () => {
+    const link: HTMLAnchorElement | null = fixture.nativeElement.querySelector('a');
+
+    expect(link).withContext('documentation link').not.toBeNull();
+    expect(link?.href).toBe(component.componentsLink.url);
+    expect(link?.textContent?.trim()).toBe(component.componentsLink.label);
   });
 });
